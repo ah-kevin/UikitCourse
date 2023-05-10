@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  BullsEye
-//
-//  Created by bjke on 2023/5/10.
-//
-
 import UIKit
 
 @main
