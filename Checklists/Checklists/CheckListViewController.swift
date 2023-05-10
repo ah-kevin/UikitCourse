@@ -10,9 +10,24 @@ import UIKit
 class CheckListViewController: UITableViewController {
   var items = [ChecklistItem]()
 
+  // MARK: - Actions
+
+  @IBAction func addItem() {
+    let newRowIndex = items.count
+
+    let item = ChecklistItem()
+    item.text = "I am a new row"
+    item.checked  = true
+    items.append(item)
+
+    let indexPath = IndexPath(row: newRowIndex, section: 0)
+    let indexPaths = [indexPath]
+    tableView.insertRows(at: indexPaths, with: .automatic)
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    navigationController?.navigationBar.prefersLargeTitles = true
     // Replace previous code with the following
     let item1 = ChecklistItem()
     item1.text = "Walk the dog"
@@ -36,6 +51,7 @@ class CheckListViewController: UITableViewController {
     item5.text = "Eat ice cream"
     items.append(item5)
   }
+
   func configureText(
     for cell: UITableViewCell,
     with item: ChecklistItem
@@ -43,10 +59,22 @@ class CheckListViewController: UITableViewController {
     let label = cell.viewWithTag(1000) as! UILabel
     label.text = item.text
   }
+  override func tableView(
+    _ tableView: UITableView,
+    commit editingStyle: UITableViewCell.EditingStyle,
+    forRowAt indexPath: IndexPath
+  ) {
+    // 1
+    items.remove(at: indexPath.row)
+
+    // 2
+    let indexPaths = [indexPath]
+    tableView.deleteRows(at: indexPaths, with: .automatic)
+  }
 
   // MARK: - Table View Data Source
 
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return items.count
   }
 
@@ -56,14 +84,13 @@ class CheckListViewController: UITableViewController {
       for: indexPath
     )
     let item = items[indexPath.row] // Add this
-    
+
     configureText(for: cell, with: item)
     configureCheckmark(for: cell, with: item)
     return cell
   }
 
   func configureCheckmark(for cell: UITableViewCell, with item: ChecklistItem) {
-
     if item.checked {
       cell.accessoryType = .checkmark
     } else {
