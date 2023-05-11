@@ -8,7 +8,6 @@
 import UIKit
 
 class CheckListViewController: UITableViewController, ItemDetailViewControllerDelegate {
-  
   var items = [ChecklistItem]()
 
   func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
@@ -22,8 +21,9 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
     let indexPath = IndexPath(row: newRowIndex, section: 0)
     let indexPaths = [indexPath]
     tableView.insertRows(at: indexPaths, with: .automatic)
-
     navigationController?.popViewController(animated: true)
+
+    saveChecklistItems()
   }
 
   func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem) {
@@ -34,6 +34,8 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
       }
     }
     navigationController?.popViewController(animated: true)
+
+    saveChecklistItems()
   }
 
   // MARK: - Navigation
@@ -59,29 +61,11 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    navigationController?.navigationBar.prefersLargeTitles = true
-    // Replace previous code with the following
-    let item1 = ChecklistItem()
-    item1.text = "Walk the dog"
-    items.append(item1)
+    navigationItem.largeTitleDisplayMode = .never
+    loadChecklistItems()
 
-    let item2 = ChecklistItem()
-    item2.text = "Brush my teeth"
-    item2.checked = true
-    items.append(item2)
-
-    let item3 = ChecklistItem()
-    item3.text = "Learn iOS development"
-    item3.checked = true
-    items.append(item3)
-
-    let item4 = ChecklistItem()
-    item4.text = "Soccer practice"
-    items.append(item4)
-
-    let item5 = ChecklistItem()
-    item5.text = "Eat ice cream"
-    items.append(item5)
+    print("Documents folder is \(documentsDirectory())")
+    print("Data file path is \(dataFilePath())")
   }
 
   func configureText(
@@ -103,6 +87,7 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
     // 2
     let indexPaths = [indexPath]
     tableView.deleteRows(at: indexPaths, with: .automatic)
+    saveChecklistItems()
   }
 
   // MARK: - Table View Data Source
@@ -141,5 +126,56 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
       configureCheckmark(for: cell, with: item)
     }
     tableView.deselectRow(at: indexPath, animated: true)
+    saveChecklistItems()
+  }
+
+  func documentsDirectory() -> URL {
+    let paths = FileManager.default.urls(
+      for: .documentDirectory,
+      in: .userDomainMask
+    )
+    return paths[0]
+  }
+
+  func dataFilePath() -> URL {
+    return documentsDirectory().appendingPathComponent("Checklists.plist")
+  }
+
+  func saveChecklistItems() {
+    // 1
+    let encoder = PropertyListEncoder()
+    // 2
+    do {
+      // 3
+      let data = try encoder.encode(items)
+      // 4
+      try data.write(
+        to: dataFilePath(),
+        options: Data.WritingOptions.atomic
+      )
+      // 5
+    } catch {
+      // 6
+      print("Error encoding item array: \(error.localizedDescription)")
+    }
+  }
+
+  func loadChecklistItems() {
+    // 1
+    let path = dataFilePath()
+    // 2
+    if let data = try? Data(contentsOf: path) {
+      // 3
+      let decoder = PropertyListDecoder()
+      do {
+        // 4
+        items = try decoder.decode(
+          [ChecklistItem].self,
+          from: data
+        )
+      } catch {
+        print("Error decoding item array: \(error.localizedDescription)")
+      }
+    }
   }
 }
