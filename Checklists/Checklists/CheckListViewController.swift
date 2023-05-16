@@ -8,6 +8,7 @@
 import UIKit
 
 class CheckListViewController: UITableViewController, ItemDetailViewControllerDelegate {
+  var checkList: Checklist!
   var items = [ChecklistItem]()
 
   func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
@@ -63,7 +64,7 @@ class CheckListViewController: UITableViewController, ItemDetailViewControllerDe
     super.viewDidLoad()
     navigationItem.largeTitleDisplayMode = .never
     loadChecklistItems()
-
+    title = checkList.name
     print("Documents folder is \(documentsDirectory())")
     print("Data file path is \(dataFilePath())")
   }
