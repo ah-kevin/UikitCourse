@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A86EF542A1350610031AA8F /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A86EF532A1350610031AA8F /* ListDetailViewController.swift */; };
+		0A86EF562A137CB10031AA8F /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A86EF552A137CB10031AA8F /* DataModel.swift */; };
 		0AAD65D02A0BCA860012113A /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD65CF2A0BCA860012113A /* ChecklistItem.swift */; };
 		0AAD65D22A0BD3B50012113A /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD65D12A0BD3B50012113A /* ItemDetailViewController.swift */; };
 		C325A3932A11D4740070397E /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = C325A3922A11D4740070397E /* Checklist.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		0A86EF532A1350610031AA8F /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		0A86EF552A137CB10031AA8F /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		0AAD65CF2A0BCA860012113A /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		0AAD65D12A0BD3B50012113A /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		C325A3922A11D4740070397E /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				C3A31F962A0CDC8000DE2A8A /* AllListsViewController.swift */,
 				C325A3922A11D4740070397E /* Checklist.swift */,
 				0A86EF532A1350610031AA8F /* ListDetailViewController.swift */,
+				0A86EF552A137CB10031AA8F /* DataModel.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				0AAD65D02A0BCA860012113A /* ChecklistItem.swift in Sources */,
 				C325A3932A11D4740070397E /* Checklist.swift in Sources */,
 				0A86EF542A1350610031AA8F /* ListDetailViewController.swift in Sources */,
+				0A86EF562A137CB10031AA8F /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
