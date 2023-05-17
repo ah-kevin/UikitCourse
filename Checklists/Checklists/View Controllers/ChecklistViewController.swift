@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Checklists
-//
-//  Created by bjke on 2023/5/10.
-//
-
 import UIKit
 
 class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {

@@ -2,6 +2,7 @@ import Foundation
 
 class DataModel {
   var lists = [Checklist]()
+
   var indexOfSelectedChecklist: Int {
     get {
       return UserDefaults.standard.integer(
@@ -13,27 +14,18 @@ class DataModel {
         forKey: "ChecklistIndex")
     }
   }
-
+  
   init() {
     loadChecklists()
     registerDefaults()
     handleFirstTime()
   }
 
-  func registerDefaults() {
-    let dictionary = [
-      "ChecklistIndex": -1,
-      "FirstTime": true
-    ] as [String: Any]
-    UserDefaults.standard.register(defaults: dictionary)
-  }
-
   // MARK: - Data Saving
-
   func documentsDirectory() -> URL {
     let paths = FileManager.default.urls(
       for: .documentDirectory,
-      in: .userDomainMask)
+         in: .userDomainMask)
     return paths[0]
   }
 
@@ -61,12 +53,22 @@ class DataModel {
         lists = try decoder.decode(
           [Checklist].self,
           from: data)
+        sortChecklists()
       } catch {
         print("Error decoding list array: \(error.localizedDescription)")
       }
     }
   }
-  
+
+  // MARK: - Defaults
+  func registerDefaults() {
+    let dictionary = [
+      "ChecklistIndex": -1,
+      "FirstTime": true
+    ] as [String: Any]
+    UserDefaults.standard.register(defaults: dictionary)
+  }
+
   func handleFirstTime() {
     let userDefaults = UserDefaults.standard
     let firstTime = userDefaults.bool(forKey: "FirstTime")
@@ -80,4 +82,10 @@ class DataModel {
     }
   }
 
+  // MARK: - Sorting
+  func sortChecklists() {
+    lists.sort { list1, list2 in
+      return list1.name.localizedStandardCompare(list2.name) == .orderedAscending
+    }
+  }
 }

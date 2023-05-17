@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Checklists
-//
-//  Created by bjke on 2023/5/10.
-//
-
 import UIKit
 
 @main
@@ -31,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
   }
 
-  
+
 }
+
 
