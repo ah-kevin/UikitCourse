@@ -105,6 +105,7 @@
                         <outlet property="longitudeLabel" destination="MXe-AH-txI" id="KyU-vz-UDn"/>
                         <outlet property="messageLabel" destination="gtL-zD-9Ym" id="m0y-jf-3uX"/>
                         <outlet property="tagButton" destination="AqC-wS-nHT" id="J1I-tc-XTv"/>
+                        <outlet property="view" destination="gtL-zD-9Ym" id="55U-va-VER"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
