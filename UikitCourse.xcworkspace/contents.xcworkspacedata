@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MyLocations/MyLocations.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Checklists/Checklists.xcodeproj">
    </FileRef>
    <FileRef
