@@ -364,7 +364,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="tNU-3G-kF1" kind="unwind" unwindAction="categoryPickerDidPickCategory:" id="uA4-jf-Tgl"/>
+                                    <segue destination="tNU-3G-kF1" kind="unwind" identifier="PickedCategory" unwindAction="categoryPickerDidPickCategory:" id="y0J-7B-xv2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -494,7 +494,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="37R-R3-9M2"/>
+        <segue reference="o8b-n7-bcF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

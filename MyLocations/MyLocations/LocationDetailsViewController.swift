@@ -97,10 +97,14 @@ class LocationDetailsViewController: UITableViewController {
     guard let mainView = navigationController?.parent?.view
     else { return }
     let hudView = HudView.hud(inView: mainView, animated: true)
-    hudView.text = "Tagged"
-    // 1
-    let location = Location(context: managedObjectContext)
-    // 2
+    let location: Location
+     if let temp = locationToEdit {
+       hudView.text = "Updated"
+       location = temp
+     } else {
+       hudView.text = "Tagged"
+       location = Location(context: managedObjectContext)
+     }
     location.locationDescription = descriptionTextView.text
     location.category = categoryName
     location.latitude = coordinate.latitude
