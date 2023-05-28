@@ -149,13 +149,13 @@ extension MapViewController: MKMapViewDelegate {
     var annotationView = mapView.dequeueReusableAnnotationView(
       withIdentifier: identifier)
     if annotationView == nil {
-      let pinView = MKPinAnnotationView(
+      let pinView = MKMarkerAnnotationView(
         annotation: annotation,
         reuseIdentifier: identifier)
       pinView.isEnabled = true
       pinView.canShowCallout = true
-      pinView.animatesDrop = false
-      pinView.pinTintColor = UIColor(
+      pinView.animatesWhenAdded = false
+      pinView.tintColor = UIColor(
         red: 0.32,
         green: 0.82,
         blue: 0.4,

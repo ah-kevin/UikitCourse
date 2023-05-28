@@ -19,7 +19,11 @@ class LocationDetailsViewController: UITableViewController {
   @IBOutlet var dateLabel: UILabel!
   @IBOutlet var imageView: UIImageView!
   @IBOutlet var addPhotoLabel: UILabel!
+  @IBOutlet var imageHeight: NSLayoutConstraint!
+
   var managedObjectContext: NSManagedObjectContext!
+  var observer: Any!
+  
   var image: UIImage?
   var date = Date()
   var locationToEdit: Location? {
@@ -69,8 +73,27 @@ class LocationDetailsViewController: UITableViewController {
     let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
     gestureRecognizer.cancelsTouchesInView = false
     tableView.addGestureRecognizer(gestureRecognizer)
+    listenForBackgroundNotification()
   }
 
+  func listenForBackgroundNotification() {
+    observer = NotificationCenter.default.addObserver(
+      forName: UIScene.didEnterBackgroundNotification,
+      object: nil,
+      queue: OperationQueue.main)
+    { [weak self] _ in
+      if let weakSelf = self {
+        if weakSelf.presentedViewController != nil {
+          weakSelf.dismiss(animated: false, completion: nil)
+        }
+        weakSelf.descriptionTextView.resignFirstResponder()
+      }
+    }
+  }
+  deinit {
+    print("*** deinit \(self)")
+    NotificationCenter.default.removeObserver(observer!)
+  }
   @objc func hideKeyboard(
     _ gestureRecognizer: UIGestureRecognizer
   ) {
@@ -195,6 +218,8 @@ class LocationDetailsViewController: UITableViewController {
     imageView.image = image
     imageView.isHidden = false
     addPhotoLabel.text = ""
+    imageHeight.constant = 260
+    tableView.reloadData()
   }
 }
 
