@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1DBAD82A2789BE00C02BAB /* UIImage+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DBAD72A2789BE00C02BAB /* UIImage+Ex.swift */; };
 		0A21BA512A20AAB800F6EA63 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21BA502A20AAB800F6EA63 /* LocationCell.swift */; };
 		0A833D2A2A2232F20024F049 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A833D292A2232F20024F049 /* MapViewController.swift */; };
 		0A84EADD2A1BB4DB00A138E9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A84EADC2A1BB4DB00A138E9 /* LocationsViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A1DBAD72A2789BE00C02BAB /* UIImage+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ex.swift"; sourceTree = "<group>"; };
 		0A21BA502A20AAB800F6EA63 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		0A833D292A2232F20024F049 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		0A84EADC2A1BB4DB00A138E9 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				0ACB9B9F2A14BC8300C67D03 /* SceneDelegate.swift */,
 				0A21BA502A20AAB800F6EA63 /* LocationCell.swift */,
 				0A833D292A2232F20024F049 /* MapViewController.swift */,
+				0A1DBAD72A2789BE00C02BAB /* UIImage+Ex.swift */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A1DBAD82A2789BE00C02BAB /* UIImage+Ex.swift in Sources */,
 				0A8922412A15280100C2B74A /* LocationDetailsViewController.swift in Sources */,
 				0ACB9BA22A14BC8300C67D03 /* CurrentLocationViewController.swift in Sources */,
 				0A21BA512A20AAB800F6EA63 /* LocationCell.swift in Sources */,

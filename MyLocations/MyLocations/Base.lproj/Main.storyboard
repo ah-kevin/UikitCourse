@@ -132,31 +132,41 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aee-oG-k9y">
-                                            <rect key="frame" x="16" y="11" width="343" height="21"/>
+                                            <rect key="frame" x="76" y="11" width="283" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0k-Vh-FVK">
-                                            <rect key="frame" x="16" y="37" width="343" height="17"/>
+                                            <rect key="frame" x="76" y="37" width="283" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p5D-uV-6l3">
+                                            <rect key="frame" x="16" y="6" width="52" height="52"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="52" id="H0i-I2-xuA"/>
+                                                <constraint firstAttribute="width" constant="52" id="wdE-u5-sOg"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="J0k-Vh-FVK" firstAttribute="trailing" secondItem="FjU-Fv-aHP" secondAttribute="trailingMargin" id="3vD-LF-YaO"/>
-                                        <constraint firstItem="aee-oG-k9y" firstAttribute="leading" secondItem="FjU-Fv-aHP" secondAttribute="leadingMargin" id="PCg-FB-jRZ"/>
+                                        <constraint firstItem="p5D-uV-6l3" firstAttribute="leading" secondItem="FjU-Fv-aHP" secondAttribute="leading" constant="16" id="2fw-Rm-S5r"/>
+                                        <constraint firstItem="J0k-Vh-FVK" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FjU-Fv-aHP" secondAttribute="trailingMargin" id="3vD-LF-YaO"/>
+                                        <constraint firstItem="J0k-Vh-FVK" firstAttribute="leading" secondItem="p5D-uV-6l3" secondAttribute="trailing" constant="8" id="Bey-cO-Snw"/>
+                                        <constraint firstItem="aee-oG-k9y" firstAttribute="leading" secondItem="p5D-uV-6l3" secondAttribute="trailing" constant="8" id="Duz-Cd-dV1"/>
                                         <constraint firstItem="aee-oG-k9y" firstAttribute="top" secondItem="FjU-Fv-aHP" secondAttribute="topMargin" id="dUz-8k-OQx"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="J0k-Vh-FVK" secondAttribute="bottom" id="fR7-Ey-tQs"/>
-                                        <constraint firstItem="aee-oG-k9y" firstAttribute="trailing" secondItem="FjU-Fv-aHP" secondAttribute="trailingMargin" id="mmm-8h-PsN"/>
+                                        <constraint firstItem="aee-oG-k9y" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FjU-Fv-aHP" secondAttribute="trailingMargin" id="mmm-8h-PsN"/>
+                                        <constraint firstItem="p5D-uV-6l3" firstAttribute="top" secondItem="FjU-Fv-aHP" secondAttribute="top" constant="6" id="naI-My-vWF"/>
                                         <constraint firstItem="J0k-Vh-FVK" firstAttribute="top" secondItem="aee-oG-k9y" secondAttribute="bottom" constant="5" id="wq1-Uf-Wzv"/>
-                                        <constraint firstItem="J0k-Vh-FVK" firstAttribute="leading" secondItem="FjU-Fv-aHP" secondAttribute="leadingMargin" id="z96-gM-yWu"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addressLabel" destination="J0k-Vh-FVK" id="ZHw-Yb-zA7"/>
                                     <outlet property="descriptionLabel" destination="aee-oG-k9y" id="igW-4R-fA0"/>
+                                    <outlet property="photoImageView" destination="p5D-uV-6l3" id="3Qb-ec-VuF"/>
                                     <segue destination="Hfe-17-XGa" kind="show" identifier="EditLocation" id="Ghc-HV-lAc"/>
                                 </connections>
                             </tableViewCell>
@@ -572,7 +582,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CAr-uw-Ufa"/>
+        <segue reference="Ghc-HV-lAc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
